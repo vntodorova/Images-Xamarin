@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="Images.Images" android:versionCode="1" android:versionName="1.0" android:installLocation="internalOnly">
+  <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="21" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <application android:label="Images" android:name="android.app.Application" android:allowBackup="true" android:icon="@drawable/images" android:debuggable="true">
+    <activity android:icon="@drawable/images" android:label="Images" android:name="md5be0af9e3c421112295ae1b622f60c3a9.MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <receiver android:label="MyWidget" android:name="md5be0af9e3c421112295ae1b622f60c3a9.MyWidget">
+      <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider_info" />
+      <intent-filter>
+        <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+      </intent-filter>
+    </receiver>
+    <receiver android:name="md5be0af9e3c421112295ae1b622f60c3a9.RepeatingAlarm" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="Images.Images.mono.MonoRuntimeProvider.__mono_init__" />
+    <!--suppress ExportedReceiver-->
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.Images.Images" />
+      </intent-filter>
+    </receiver>
+  </application>
+</manifest>
